@@ -15,8 +15,13 @@ public class PythagorasTriplet {
         for (a = 1; a < (targetTripletSum / 3) - 1; a++) {
             for (b = a+1; b < (((targetTripletSum - a) /2)); b++) {
                 c = 1000 - a - b;
-                if (isValidPythagorasEquation(a,b,c) && aLowersBLowersC(a, b, c) && sumIsTargetSum(a, b, c))
-                    return a*b*c;
+                if (isValidPythagorasEquation(a,b,c) && aLowersBLowersC(a, b, c) && sumIsTargetSum(a, b, c)) {
+                    System.out.println("" + a + " + " + b + " + " + c + " = 1000" );
+                    System.out.println("a = " + a + "; b = " + b + "; c = " + c);
+                    System.out.println(a + "^2 + " + b + "^2 = " + c + "^2" );
+                    System.out.println("" + a * a + " + " + b * b + " = " + c * c);
+                    return a * b * c;
+                }
             }
         }
         // standaardwaarde retourneren maar zou nooit mogen gebeuren
@@ -32,7 +37,7 @@ public class PythagorasTriplet {
     }
 
     public boolean isValidPythagorasEquation(int a, int b, int c) {
-        return ((int) Math.sqrt(a * a + b * b) == c) ? true : false;
+        return (Math.sqrt(a * a + b * b) == c) ? true : false;
     }
 
 }
